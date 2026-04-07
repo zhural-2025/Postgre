@@ -1,4 +1,4 @@
-# PostgreSQL Basic Homework
+# PostgreSQL Medium Homework (Track 2)
 
 ## Quick Start
 
@@ -7,17 +7,24 @@
 2. Install dependencies:
    - `pip install -r requirements.txt`
 3. Create `.env` from `.env.example` and fill credentials.
-4. Ensure PostgreSQL database `test` has table `public.users` with test rows.
+4. Configure `.env`:
+   - `DB_HOST=localhost`
+   - `DB_PORT=5432`
+   - `DB_NAME=test`
+   - `DB_USER=postgres`
+   - `DB_PASSWORD=...`
 
 ## Run
 
 - Run script:
   - `python main.py`
 - Expected output:
-  - rows from `SELECT id, name, age FROM users ORDER BY id;`
+  - totals by user in format `Name — 1250.00`
+  - cascade check message (`до удаления... после удаления...`)
 
 ## Project Files
 
-- `main.py` - connects to PostgreSQL via `.env`, reads users, closes connection in `finally`.
+- `main.py` - runs demo workflow for Track 2.
+- `postgres_driver.py` - connection + create tables + insert + aggregate + cascade helpers.
 - `requirements.txt` - dependencies (`psycopg2-binary`, `python-dotenv`).
 - `.env.example` - environment variable template without secrets.
